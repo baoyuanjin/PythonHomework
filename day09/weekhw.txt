@@ -1,0 +1,99 @@
+1.请写出与 10 < cost < 50 等价的表达式
+10 < cost and cost < 50
+not (cost <= 10 and cost >= 50)
+
+2.Python3 中，一行可以书写多个语句吗？
+Python3 中，一个语句可以分成多行书写吗？
+都可以
+
+3.我们人类思维是习惯于“四舍五入”法，你有什么办法使得 int() 按照“四舍五入”的方式取整吗？
+int是向下取整，可以采用int(x+0.5)的方法
+也可以用math中的ceil()函数专门用于向上取整
+
+4.请用最快速度说出答案：not 1 or 0 and 1 or 3 and 4 or 5 and 6 or7 and 8 and 9
+   答案为4
+
+5.爱因斯坦曾出过这样一道有趣的数学题：有一个长阶梯，若每步上2阶，最后剩1阶；若每步上3阶，最后剩2阶；若每步上5阶，最后剩4阶；若每步上6阶，最后剩5阶；只有每步上7阶，最后刚好一阶也不剩。请编程求解该阶梯至少有多少阶？
+i = 0
+while True:
+	if i % 2 ==1 and i % 3 == 2 and i % 5 ==4\
+	  and i % 6 == 5 and i % 7 == 0:
+		print("阶梯至少为{}阶".format(i))
+		break
+	i += 1
+
+阶梯至少为119阶
+
+6.假设有 x = 1，y = 2，z = 3，请问如何快速将三个变量的值互相交换？
+   可以这样   x , y = y , x  ;  y , z = z , y
+  也可以设置一个temp中间变量，temp = 1, x = y , y = z , z = temp
+ 
+ 7.目测以下程序会打印什么？
+   while True:
+        while True:
+            break
+            print(1)
+        print(2)
+        break
+   else：
+        print(3)
+
+程序打印的是  2
+
+8.member.append(['竹林小溪', 'Crazy迷恋']) 和member.extend(['竹林小溪', 'Crazy迷恋']) 实现的效果一样吗？
+不一样，append是把集合['竹林小溪', 'Crazy迷恋']追加到列表member后面，而extend是将'竹林小溪', 'Crazy迷恋'两个元素添加到列表后面
+
+9.请问如何将下边这个列表的'小笨蛋'修改为'小坏蛋'？
+  list1 = [1, [1, 2,['小笨蛋']],3, 5, 8, 13, 18]
+list1[1][2]=['小坏蛋']
+list1[1][2][0]='小坏蛋'
+
+10.要对一个列表进行顺序排序，请问使用什么方法？
+  list.sort()  
+sorted(list)
+11.要对一个列表进行逆序排序，请问使用什么方法？
+    list.sort(reverse=True)
+sorted(list,reverse=True)
+
+12.什么情况下你需要使用元组而不是列表？
+  当元组和列表掉下水，你会救谁？
+在想要存的值不被改变的时候比如传函数返回值的时候用元组
+我会救列表，元组一旦赋值就不可改变
+
+13.x, y, z = 1, 2, 3 请问x, y, z是元组吗
+是元组类型
+
+14.编写一个进制转换程序（提示，十进制转换二进制可以用bin()这个BIF）：
+
+def binary(n):
+	# 十进制转二进制的方法：除2取余，逆序排列
+    result = '0'
+    if n == 0:    # 输入为0的情况
+        return result
+    else:
+        result = change(n // 2)  # 调用自身
+        return result + str(n % 2)
+num = int(input("请输入一个十进制的数字："))   
+print(binary(num)) 
+
+
+15.我们根据列表、元祖和字符串的共同特点，把它们三统称为什么？有什么共性
+把它们统称序列类型
+有共同的运算符和函数
+
+16.请问这个函数有多少个参数？
+def MyFun((x,y), (a, b)):
+      return x * y - a * b
+两个参数，用两个元组做参数
+
+17.编写一个函数满足以下功能：
+计算打印所有参数的和乘以基数（base=3）的结果 
+def fun1(*num2):
+	base, sum1, i = 3, 0, 0
+	while i < len(num2):
+		sum1 += num2[i]
+		i += 1
+	return sum1 * base
+print(fun1(1,2,3,4,5,6))
+
+
